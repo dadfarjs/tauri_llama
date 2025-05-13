@@ -19,7 +19,7 @@ import {
 } from '../../typings/settings/dialog';
 import FormFieldInput from '../formFields/FormFieldInput';
 import Spin from '../loading/Spin';
-import { useSettingDialogStore } from '../store/setting';
+import { useSettingDialogStore } from '../../store/setting';
 
 const Dialog = () => {
   const { openDialog, setOpenDialog } = useSettingDialogStore();

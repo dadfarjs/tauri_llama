@@ -49,7 +49,7 @@ const Main = () => {
 
       <div>
         {/* suggestions */}
-        {messages.length === 0 && (
+        {messages.length !== 0 && (
           <>
             <div className="my-8 md:p-0 p-4 mx-auto max-w-[32rem] grid gap-2 grid-cols-2">
               {SUGGESTIONS.map((s: any, index: number) => (
