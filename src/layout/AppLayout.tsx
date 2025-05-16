@@ -3,6 +3,8 @@ import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import AppHeader from './AppHeader';
 import Backdrop from './Backdrop';
 import AppSidebar from './AppSidebar';
+import { useGlobalStore } from '../store/global';
+import { useMemo } from 'react';
 
 const LayoutContent: React.FC = () => {
   // const { isExpanded, isHovered, isMobileOpen } = useSidebar();

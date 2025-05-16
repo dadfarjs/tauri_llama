@@ -3,11 +3,13 @@ import { Link } from '@tanstack/react-router';
 
 import { useSidebar } from '../context/SidebarContext';
 import { ThemeToggleButton } from '../components/theme/ThemeToggleButton';
+import { useGlobalStore } from '../store/global';
 
 const AppHeader: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
+  const { setOpenSidebar } = useGlobalStore();
 
-  const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
+  const { isExpanded, isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
 
   const handleToggle = () => {
     if (window.innerWidth >= 1024) {
@@ -15,9 +17,11 @@ const AppHeader: React.FC = () => {
     } else {
       toggleMobileSidebar();
     }
+    setOpenSidebar(!isExpanded);
   };
 
   const toggleApplicationMenu = () => {
+    setOpenSidebar(!isApplicationMenuOpen);
     setApplicationMenuOpen(!isApplicationMenuOpen);
   };
 
@@ -106,7 +110,7 @@ const AppHeader: React.FC = () => {
             </svg>
           </button>
 
-          <div className="hidden lg:block">
+          {/* <div className="hidden lg:block">
             <form>
               <div className="relative">
                 <span className="absolute -translate-y-1/2 pointer-events-none left-4 top-1/2">
@@ -139,7 +143,7 @@ const AppHeader: React.FC = () => {
                 </button>
               </div>
             </form>
-          </div>
+          </div> */}
         </div>
         <div
           className={`${

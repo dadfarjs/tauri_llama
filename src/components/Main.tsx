@@ -3,6 +3,7 @@ import './main.css';
 import Starter from './Starter';
 import { SUGGESTIONS } from '../data';
 import InputMessage from './chat/InputMessage';
+import AppHeader from '../layout/AppHeader';
 // import { generateMessage } from "../utils/openai";
 
 const Main = () => {
@@ -11,13 +12,16 @@ const Main = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => ref.current.scrollIntoView({ behavior: 'smooth' }), 1000);
-  }, [messages]);
+  // useEffect(() => {
+  //   setTimeout(() => ref.current.scrollIntoView({ behavior: 'smooth' }), 1000);
+  // }, [messages]);
 
   return (
     <div className="flex flex-col justify-between h-screen">
-      <h1 className="font-bold text-xl text-white p-4">ChatGPT 3.5 Clone</h1>
+      <div>
+        <AppHeader />
+        <h1 className="font-bold text-xl text-white p-4">ChatGPT 3.5 Clone</h1>
+      </div>
       <div>
         {/* <Starter/> */}
         {/* messages */}

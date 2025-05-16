@@ -20,6 +20,7 @@ import {
 import FormFieldInput from '../formFields/FormFieldInput';
 import Spin from '../loading/Spin';
 import { useSettingDialogStore } from '../../store/setting';
+import { invoke } from '@tauri-apps/api/core';
 
 const Dialog = () => {
   const { openDialog, setOpenDialog } = useSettingDialogStore();
@@ -34,6 +35,9 @@ const Dialog = () => {
 
   const handleFormSubmit: SubmitHandler<TFormFieldsDialogSetting> = data => {
     console.log(data);
+    invoke('greet', { name: 'name' }).then(res => {
+      console.log(res);
+    });
   };
 
   function close() {
